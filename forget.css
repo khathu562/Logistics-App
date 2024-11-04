@@ -1,0 +1,119 @@
+/* General styles */
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #0e0330, #680612);
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Container for the forgot password box */
+.forgot-password-container {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+}
+
+/* Styling for the forgot password box */
+.forgot-password-box {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  box-shadow: 0 10px 40px rgba(54, 7, 208, 0.3);
+  padding: 40px;
+}
+
+/* Heading style */
+.forgot-password-box h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, #0ca507 50%, #18111ed9 50%);
+  color: transparent; /* Make the text color transparent to see the gradient */
+  -webkit-background-clip: text; /* Clip the background to text (for WebKit browsers) */
+  background-clip: text; /* Clip the background to text */
+  font-size: 2rem; /* Adjust the font size */
+  font-weight: bold; /* Make the font bold */
+  padding: 10px; /* Add some padding */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Optional shadow for better visibility */
+}
+
+/* Paragraph style */
+.forgot-password-box p {
+  text-align: center;
+  margin-bottom: 20px;
+  color: white;
+}
+
+/* Input group styles */
+.input-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.input-group label {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  color: #999;
+  transition: 0.2s;
+}
+
+.input-group input:focus + label,
+.input-group input:valid + label {
+  top: -10px;
+  left: 10px;
+  font-size: 12px;
+  color: #3ee011;
+}
+
+/* Icon styling */
+.input-group i {
+  position: absolute;
+  right: 10px;
+  top: 12px;
+  color: #999;
+}
+
+/* Button styles */
+button {
+  width: 100%;
+  padding: 10px;
+  background: linear-gradient(135deg, #0e0330, #680612);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background: linear-gradient(90deg, #2d0101, #3e29dd);
+}
+
+/* Extra options styles */
+.extra-options {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.extra-options p {
+  margin: 5px 0;
+}
+
+.extra-options a {
+  color: #4a90e2;
+  text-decoration: none;
+}
+
+.extra-options a:hover {
+  text-decoration: underline;
+}

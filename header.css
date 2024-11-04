@@ -1,0 +1,53 @@
+/* Header Styles */
+header {
+  background: linear-gradient(90deg, #041340, #6a91f2);
+  color: #f9f9f9;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* Align logo to the left */
+.header-logo {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Push navigation to the right but not too close to the end */
+nav {
+  margin-left: auto; /* Pushes navigation to the right */
+  margin-right: 35px; /* Adds space between nav and right edge */
+}
+
+/* Navigation links */
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+}
+
+/* Navigation link styles */
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover {
+  color: #dc3545; /* Color change on hover */
+}
+
+/* Additional styles for the contact section */
+.contact h2,
+.contact p {
+  color: red;
+}

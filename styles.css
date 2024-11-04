@@ -1,0 +1,492 @@
+/* General Body Styles */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+/* Header Section */
+header {
+  background: #02131e;
+  padding: 10px 0;
+  color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Ensure the header is above other content */
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+}
+
+.header-logo i {
+  font-size: 1.5em;
+  margin-right: 10px;
+}
+
+.header-logo span {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+nav li {
+  position: relative;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+}
+
+nav a i {
+  margin-right: 8px;
+}
+
+nav a:hover {
+  background: #71b929;
+  border-radius: 5px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+}
+
+.dropdown-content a {
+  color: #3498db;
+  padding: 10px 20px;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background: #1a5d6e;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Adjust Main Content Section to account for fixed header */
+main {
+  margin: 80px 20px 20px; /* Add top margin to ensure content is below the header */
+  padding: 20px;
+  background: #e1dede75;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Section Styles */
+section {
+  margin-bottom: 20px;
+}
+
+section h2 {
+  font-size: 1.8em;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  color: #3498db;
+}
+
+section p {
+  font-size: 1em;
+  margin-bottom: 10px;
+  line-height: 1.8;
+}
+
+/* Key Features Section */
+#features {
+  background: #f9f9f9;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+#features h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #0a3754;
+  font-weight: bold;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  justify-content: center;
+}
+
+.feature-card {
+  background: #e5e4e9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.feature-card h3 {
+  font-size: 1.5em;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  color: #2c3e50;
+}
+
+.feature-card p {
+  font-size: 1em;
+  color: #7f8c8d;
+  line-height: 1.6;
+}
+
+.feature-icon {
+  font-size: 3em;
+  color: #420606;
+}
+
+/* List Styles */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+li h3 {
+  font-size: 1.5em;
+  margin: 0;
+  color: #34495e;
+}
+
+li p {
+  font-size: 1em;
+  color: #7f8c8d;
+}
+
+/* Statistics Grid */
+#stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.stat-item {
+  background: #ecf0f1;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.stat-item h4 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.stat-item p {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+/* Recent Activity Section */
+#recent-activity {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+}
+
+#recent-activity h3 {
+  font-size: 1.8em;
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #29292adc;
+}
+
+#recent-activity ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#recent-activity li {
+  margin-bottom: 10px;
+}
+
+#recent-activity li:last-child {
+  margin-bottom: 0;
+}
+
+#recent-activity p {
+  font-size: 1em;
+  color: #7f8c8d;
+}
+
+/* Alerts & Notifications Section */
+#alerts {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+}
+
+#alerts h3 {
+  font-size: 1.8em;
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #e74c3c;
+}
+
+#alerts ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#alerts li {
+  margin-bottom: 10px;
+}
+
+#alerts li:last-child {
+  margin-bottom: 0;
+}
+
+#alerts p {
+  font-size: 1em;
+  color: #7f8c8d;
+}
+
+/* Upcoming Tasks Section */
+#upcoming-tasks {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+}
+
+#upcoming-tasks h3 {
+  font-size: 1.8em;
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #71b929;
+}
+
+#upcoming-tasks ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#upcoming-tasks li {
+  margin-bottom: 10px;
+}
+
+#upcoming-tasks li:last-child {
+  margin-bottom: 0;
+}
+
+#upcoming-tasks p {
+  font-size: 1em;
+  color: #7f8c8d;
+}
+
+#alerts strong {
+  color: #e74c3c;
+}
+
+/* Upcoming Tasks */
+#upcoming-tasks ul {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+}
+
+#upcoming-tasks li {
+  margin-bottom: 10px;
+}
+
+#upcoming-tasks li:last-child {
+  margin-bottom: 0;
+}
+
+/* Footer Section */
+footer {
+  text-align: center;
+  padding: 10px;
+  background: #031622;
+  color: #fff;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Ensure it is above other content */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  #stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  section h2 {
+    font-size: 1.5em;
+    background-color: rgba(38, 13, 13, 0.15);
+  }
+
+  li h3 {
+    font-size: 1.3em;
+  }
+
+  .stat-item h4 {
+    font-size: 1em;
+  }
+
+  .stat-item p {
+    font-size: 1.2em;
+  }
+}
+
+/* User Input Section Styling */
+#user-input {
+  background-color: #f9f9f9;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 40px auto;
+}
+
+#user-input h2 {
+  font-family: "Arial", sans-serif;
+  font-size: 1.8em;
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+/* Form Group Styling */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 1.1em;
+  color: #555;
+  margin-bottom: 8px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Input Container for Icons */
+.input-container {
+  position: relative;
+}
+
+/* Icon Styling */
+.input-container i {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #999;
+  font-size: 1.2em;
+}
+
+/* Input Styling */
+.form-group input[type="text"] {
+  width: 100%;
+  padding: 12px 15px 12px 40px; /* Add padding to the left for icon */
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1em;
+  color: #333;
+  background-color: #fff;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Input Focus Effect */
+.form-group input[type="text"]:focus {
+  border-color: #5cb85c;
+  outline: none;
+  box-shadow: 0 0 8px rgba(92, 184, 92, 0.2);
+}
+
+/* Button Styling */
+button[type="submit"] {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  background-color: #13051c;
+  color: #fff;
+  font-size: 1.2em;
+  font-family: "Arial", sans-serif;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Button Hover Effect */
+button[type="submit"]:hover {
+  background-color: #0e0212;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Additional Styling for Responsiveness */
+@media (max-width: 768px) {
+  #user-input {
+    padding: 30px;
+  }
+
+  #user-input h2 {
+    font-size: 1.5em;
+  }
+
+  .form-group input[type="text"] {
+    font-size: 0.95em;
+  }
+
+  button[type="submit"] {
+    font-size: 1.1em;
+  }
+}

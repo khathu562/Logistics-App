@@ -1,0 +1,331 @@
+mvn spring-boot:run<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Logistics App - Home</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+    />
+    <style>
+      /* General Styles */
+      body {
+        font-family: "Roboto", sans-serif;
+        margin: 0;
+        padding: 80px 0 60px; /* Top padding for header and bottom padding for footer */
+        background: linear-gradient(
+          135deg,
+          #0e0330,
+          #680612
+        ); /* Gradient background */
+        color: #343a40;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      /* Header Styles */
+      header {
+        background: linear-gradient(90deg, #041340, #6a91f2);
+        color: #f9f9f9;
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed; /* Fixed position */
+        top: 0; /* Aligns to the top */
+        left: 0; /* Aligns to the left */
+        width: 100%; /* Full width */
+        z-index: 1000;
+      }
+
+      /* Additional Styles */
+      .contact h2,
+      .contact p {
+        color: red; /* Style both h2 and p elements to red */
+      }
+
+      .header-logo {
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
+      }
+
+      nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        gap: 20px;
+      }
+
+      nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+        transition: color 0.3s;
+        margin-right: 35px;
+      }
+
+      nav ul li a:hover {
+        color: #dc3545;
+      }
+
+      /* Hero Section */
+      .hero {
+        background: rgba(6, 10, 30, 0.7); /* Semi-transparent background */
+        height: 70vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: white;
+        position: relative;
+        padding: 20px;
+        margin-top: 80px; /* To account for the fixed header height */
+      }
+
+      .hero h1 {
+        font-size: 48px;
+        margin: 0;
+      }
+
+      .hero p {
+        font-size: 20px;
+        margin: 10px 0;
+      }
+
+      .hero button {
+        padding: 10px 20px;
+        background-color: #1e033c;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        font-size: 18px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .hero button:hover {
+        background-color: #961632;
+      }
+
+      /* Features Section */
+      .features {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        padding: 50px 20px;
+        background-color: rgba(
+          255,
+          255,
+          255,
+          0.8
+        ); /* Semi-transparent background */
+        margin-top: 20px;
+      }
+
+      .feature-card {
+        background-color: #f8f9fa;
+        border-radius: 5px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        text-align: center;
+        width: 250px;
+        margin: 10px;
+        transition: transform 0.3s;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .feature-card i {
+        font-size: 40px;
+        color: #170757;
+      }
+
+      .feature-card h3 {
+        margin: 10px 0;
+        font-size: 22px;
+      }
+
+      .feature-card p {
+        font-size: 16px;
+      }
+
+      /* About Section */
+      .about {
+        padding: 50px 20px;
+        text-align: center;
+        background-color: rgba(
+          248,
+          249,
+          250,
+          0.8
+        ); /* Semi-transparent background */
+      }
+
+      .about h2 {
+        font-size: 32px;
+      }
+
+      .about p {
+        max-width: 800px;
+        margin: 0 auto;
+        font-size: 18px;
+      }
+
+      /* Contact Section */
+      .contact {
+        padding: 50px 20px;
+        text-align: center;
+      }
+
+      .contact h2 {
+        font-size: 32px;
+      }
+
+      .contact p {
+        font-size: 18px;
+      }
+
+      .contact form {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .contact input,
+      .contact textarea {
+        width: 80%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+
+      .contact button {
+        padding: 10px 20px;
+        background-color: #1e033c;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        font-size: 18px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .contact button:hover {
+        background-color: #b92929;
+      }
+
+      /* Footer Styles */
+      footer {
+        background: #021038;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2);
+        position: fixed; /* Fixed position */
+        bottom: 0; /* Aligns to the bottom */
+        left: 0; /* Aligns to the left */
+        width: 100%; /* Full width */
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header Section -->
+    <header>
+      <div class="header-logo"><i class="fas fa-truck"></i> Logistics App</div>
+      <nav>
+        <ul>
+          <li>
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+          </li>
+          <li>
+            <a href="messaging.html"
+              ><i class="fas fa-comments"></i> Messaging</a
+            >
+          </li>
+          <li>
+            <a href="GeolocationExample.html"
+              ><i class="fas fa-map-marker-alt"></i> Tracking</a
+            >
+          </li>
+          <li>
+            <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <div class="hero">
+      <h1>Welcome to the Logistics App</h1>
+      <p>Your partner in efficient transportation.</p>
+      <button id="get-started-btn">Get Started</button>
+    </div>
+
+    <!-- Features Section -->
+    <div class="features">
+      <div class="feature-card">
+        <i class="fas fa-truck-loading"></i>
+        <h3>Real-time Tracking</h3>
+        <p>Monitor your shipments in real-time.</p>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-users"></i>
+        <h3>Driver Communication</h3>
+        <p>Stay connected with your drivers.</p>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-chart-line"></i>
+        <h3>Performance Metrics</h3>
+        <p>Analyze your logistics performance.</p>
+      </div>
+    </div>
+
+    <!-- About Section -->
+    <div class="about">
+      <h2>About Us</h2>
+      <p>
+        We provide the best logistics solutions tailored to your business needs.
+      </p>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="contact">
+      <h2>Contact Us</h2>
+      <p>Have questions? We're here to help!</p>
+      <form>
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2024 Logistics App. All rights reserved.</p>
+    </footer>
+
+    <script>
+      // Handle button click to redirect to registration page
+      document
+        .getElementById("get-started-btn")
+        .addEventListener("click", function () {
+          window.location.href = "registration.html"; // Redirect to registration page
+        });
+    </script>
+  </body>
+</html>

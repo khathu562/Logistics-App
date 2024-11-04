@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vehicle Tracking System - Welcome</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #0e0330, #680612);
+        color: #f9f9f9;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        overflow: hidden;
+      }
+      /* Header Styles */
+      header {
+        background: linear-gradient(90deg, #041340, #6a91f2);
+        color: #f9f9f9;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+      }
+
+      /* Align logo to the left */
+      .header-logo {
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
+      }
+
+      /* Push navigation to the right but not too close to the end */
+      nav {
+        margin-left: auto; /* Pushes navigation to the right */
+        margin-right: 35px; /* Adds space between nav and right edge */
+      }
+
+      /* Navigation links */
+      nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        gap: 20px;
+      }
+
+      /* Navigation link styles */
+      nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+        transition: color 0.3s;
+      }
+
+      nav ul li a:hover {
+        color: #dc3545; /* Color change on hover */
+      }
+
+      /* Additional styles for the contact section */
+      .contact h2,
+      .contact p {
+        color: red;
+      }
+
+      /* Welcome Container */
+      .welcome-container {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 15px;
+        padding: 40px;
+        text-align: center;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 8px 32px rgba(30, 8, 201, 0.37);
+        width: 90%;
+        max-width: 900px;
+        animation: fadeIn 1.5s ease-out;
+      }
+
+      /* Heading */
+      .welcome-container h1 {
+        font-size: 48px;
+        margin-bottom: 20px;
+        color: #c9d00e;
+      }
+
+      .welcome-container p {
+        font-size: 18px;
+        color: #ddd;
+        margin-bottom: 30px;
+      }
+
+      /* Welcome Stats */
+      .welcome-stats {
+        display: flex;
+        justify-content: space-around;
+        margin: 30px 0;
+      }
+
+      .stat-card {
+        background-color: rgba(255, 255, 255, 0.15);
+        border-radius: 10px;
+        padding: 20px;
+        width: 100px;
+        text-align: center;
+        color: #fff;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s;
+      }
+
+      .stat-card:hover {
+        transform: translateY(-10px);
+      }
+
+      .stat-card i {
+        font-size: 36px;
+        margin-bottom: 10px;
+      }
+
+      .stat-card h3 {
+        font-size: 24px;
+      }
+
+      .stat-card p {
+        font-size: 14px;
+        color: #ddd;
+      }
+
+      /* Quick Links Section */
+      .quick-links {
+        margin-top: 30px;
+      }
+
+      .quick-links button {
+        background: #6b0f1a;
+        color: #fff;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+        margin: 0 10px;
+        transition: background-color 0.3s, transform 0.3s;
+      }
+
+      .quick-links button:hover {
+        background-color: #961632;
+        transform: translateY(-5px);
+      }
+
+      /* Fade In Animation */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: scale(0.9);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      /* Media Query for smaller screens */
+      @media (max-width: 768px) {
+        .welcome-container {
+          padding: 20px;
+        }
+        .welcome-container h1 {
+          font-size: 36px;
+        }
+        .welcome-stats {
+          flex-direction: column;
+        }
+        .stat-card {
+          margin-bottom: 20px;
+        }
+        .quick-links button {
+          padding: 10px 20px;
+        }
+      }
+      footer {
+        background: #021038;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2);
+        position: fixed; /* Fixed position */
+        bottom: 0; /* Aligns to the bottom */
+        left: 0; /* Aligns to the left */
+        width: 100%; /* Full width */
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <!-- Logo Section -->
+      <div class="header-logo"><i class="fas fa-truck"></i> Logistics App</div>
+      <!-- Navigation Section -->
+      <nav>
+        <ul>
+          <li>
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+          </li>
+          <li>
+            <a href="messaging.html"
+              ><i class="fas fa-comments"></i> Messaging</a
+            >
+          </li>
+          <li>
+            <a href="GeolocationExample.html"
+              ><i class="fas fa-map-marker-alt"></i> Tracking</a
+            >
+          </li>
+          <li>
+            <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <div class="welcome-container">
+      <h1>Welcome to the Vehicle Tracking System!</h1>
+      <p>
+        Your vehicle's safety and location at your fingertips. Here are some
+        quick stats:
+      </p>
+
+      <!-- User Stats -->
+      <div class="welcome-stats">
+        <div class="stat-card">
+          <i class="fas fa-car"></i>
+          <h3>5</h3>
+          <p>Vehicles Active</p>
+        </div>
+        <div class="stat-card">
+          <i class="fas fa-map-marker-alt"></i>
+          <h3>12</h3>
+          <p>Locations Tracked</p>
+        </div>
+        <div class="stat-card">
+          <i class="fas fa-shield-alt"></i>
+          <h3>98%</h3>
+          <p>Safety Rating</p>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="quick-links">
+        <button onclick="window.location.href='profile.html'">
+          <i class="fas fa-user"></i> View Profile
+        </button>
+        <button onclick="window.location.href='GeolocationExample.html'">
+          <i class="fas fa-map"></i> Track Vehicle
+        </button>
+        <button onclick="window.location.href='login.html'">
+          <i class="fas fa-sign-out-alt"></i> Logout
+        </button>
+      </div>
+    </div>
+
+    <!-- Confetti Script -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+    <script>
+      // Function to launch confetti
+      function launchConfetti() {
+        var duration = 5 * 1000;
+        var end = Date.now() + duration;
+
+        (function frame() {
+          const colors = [
+            "#ff0a0a",
+            "#ffea00",
+            "#00ff00",
+            "#00aaff",
+            "#ff00ff",
+          ];
+          const randomColor = colors[Math.floor(Math.random() * colors.length)];
+
+          confetti({
+            particleCount: 10,
+            angle: Math.random() * 360,
+            spread: Math.random() * 100 + 50,
+            origin: { x: Math.random(), y: Math.random() - 0.2 },
+            colors: [randomColor],
+            scalar: Math.random() * 1.5 + 0.5,
+          });
+
+          if (Date.now() < end) {
+            requestAnimationFrame(frame);
+          }
+        })();
+      }
+
+      // Trigger confetti on page load
+      window.onload = function () {
+        launchConfetti();
+      };
+    </script>
+
+    <footer>
+      <p>&copy; 2024 Logistics App. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

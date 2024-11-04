@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile - Logistics App</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+        background-color: #f4f7fc;
+        color: #333;
+      }
+
+      header {
+        background: linear-gradient(90deg, #041340, #6a91f2);
+        color: white;
+        padding: 9px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+      }
+
+      .header-logo {
+        display: flex;
+        align-items: center;
+      }
+
+      .header-logo i {
+        font-size: 1.5rem;
+        margin-right: 10px;
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      nav ul li {
+        margin-left: 2px;
+      }
+
+      nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        margin-right: 35px;
+      }
+
+      nav ul li a i {
+        margin-right: 5px;
+      }
+
+      nav ul li a:hover {
+        color: #6a91f2;
+      }
+
+      main {
+        padding: 120px 2rem 2rem 2rem;
+      }
+
+      h1 {
+        font-size: 2rem;
+        color: #de1533;
+        margin-bottom: 1rem;
+        font-weight: bold;
+      }
+
+      section {
+        background-color: #fff;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 2rem;
+      }
+
+      section h2 {
+        font-size: 1.5rem;
+        color: #041547;
+        margin-bottom: 1rem;
+      }
+
+      section p {
+        margin-bottom: 1rem;
+      }
+
+      /* Profile Form */
+      .profile-form {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+      }
+
+      .profile-form .form-group {
+        flex: 1 1 45%;
+      }
+
+      .profile-form label {
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+        display: block;
+      }
+
+      .profile-form input,
+      .profile-form select {
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .profile-form input[type="file"] {
+        padding: 0;
+      }
+
+      .profile-pic {
+        text-align: center;
+      }
+
+      .profile-pic img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        margin-bottom: 1rem;
+      }
+
+      .profile-pic button {
+        background-color: #041547;
+        color: white;
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .profile-pic button:hover {
+        background-color: #030e2f;
+      }
+
+      /* Activity Dashboard */
+      .activity-dashboard {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .activity-dashboard .activity-card {
+        flex: 1;
+        background-color: #fff;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        margin-right: 1rem;
+        text-align: center;
+      }
+
+      .activity-dashboard .activity-card:last-child {
+        margin-right: 0;
+      }
+
+      .activity-card h3 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+        color: #041547;
+      }
+
+      .activity-card p {
+        font-size: 1rem;
+        color: #666;
+      }
+
+      /* Dark Mode Toggle */
+      .dark-mode-toggle {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 1rem;
+      }
+
+      .dark-mode-toggle input {
+        margin-left: 10px;
+        cursor: pointer;
+      }
+
+      footer {
+        background: #021038;
+        color: white;
+        text-align: center;
+        padding: 8px;
+        box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header Section -->
+    <header>
+      <div class="header-logo">
+        <i class="fas fa-truck"></i>
+        <span>Logistics App</span>
+      </div>
+      <nav>
+        <ul>
+          <li>
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+          </li>
+          <li>
+            <a href="messaging.html"
+              ><i class="fas fa-comments"></i> Messaging</a
+            >
+          </li>
+          <li>
+            <a href="GeolocationExample.html"
+              ><i class="fas fa-map-marker-alt"></i> Tracking</a
+            >
+          </li>
+          <li>
+            <a href="payments.html"
+              ><i class="fas fa-credit-card"></i> Payments</a
+            >
+          </li>
+          <li>
+            <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Dark Mode Toggle -->
+    <div class="dark-mode-toggle">
+      <label for="dark-mode">Dark Mode</label>
+      <input type="checkbox" id="dark-mode" />
+    </div>
+
+    <!-- Main Content Section -->
+    <main>
+      <h1>Profile</h1>
+      <section>
+        <h2>User Information</h2>
+        <p>View and edit your personal information and settings.</p>
+
+        <!-- Profile Form -->
+        <form class="profile-form">
+          <div class="profile-pic">
+            <img src="default-profile.png" alt="Profile Picture" />
+            <button type="button">Change Profile Picture</button>
+          </div>
+
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" value="johndoe" />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" value="john.doe@example.com" />
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" value="+1234567890" />
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" value="password123" />
+          </div>
+
+          <div class="form-group">
+            <label for="role">Role</label>
+            <select id="role">
+              <option>Driver</option>
+              <option>Manager</option>
+              <option>Admin</option>
+            </select>
+          </div>
+
+          <button type="submit" class="update-btn">Update Profile</button>
+        </form>
+      </section>
+
+      <!-- Activity Dashboard -->
+      <section class="activity-dashboard">
+        <div class="activity-card">
+          <h3>54</h3>
+          <p>Deliveries Completed</p>
+        </div>
+        <div class="activity-card">
+          <h3>3</h3>
+          <p>Pending Deliveries</p>
+        </div>
+        <div class="activity-card">
+          <h3>$1200</h3>
+          <p>Total Payments</p>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+      <p>&copy; 2024 Logistics App. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+      const darkModeToggle = document.getElementById("dark-mode");
+      darkModeToggle.addEventListener("change", function () {
+        document.body.classList.toggle("dark-mode");
+      });
+    </script>
+  </body>
+</html>

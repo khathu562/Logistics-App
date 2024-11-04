@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Car Tracking App</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+      integrity="sha256-mn4DkvtKqxSjSYlWZn+wMCszMKP0dx1RQ4BU2QkZG9A="
+      crossorigin=""
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+      }
+
+      header {
+        background-color: #333;
+        color: white;
+        padding: 10px;
+        text-align: center;
+      }
+
+      h1 {
+        margin: 0;
+      }
+
+      #map {
+        height: 500px;
+        width: 100%;
+        margin: 20px auto;
+        border: 2px solid #333;
+        border-radius: 5px;
+        display: none; /* Hide map initially */
+      }
+
+      #controls {
+        text-align: center;
+        margin: 20px;
+      }
+
+      #start-tracking {
+        background-color: #4caf50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 18px;
+      }
+
+      #start-tracking:hover {
+        background-color: #45a049;
+      }
+
+      footer {
+        text-align: center;
+        padding: 10px;
+        background-color: #333;
+        color: white;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Car Tracking App</h1>
+    </header>
+
+    <div id="controls">
+      <button id="start-tracking">Start Car Tracking</button>
+      <p id="status">Status: Not tracking</p>
+    </div>
+
+    <div id="map"></div>
+
+    <footer>
+      <p>&copy; 2024 Car Tracking App. All rights reserved.</p>
+    </footer>
+
+    <!-- Leaflet JS -->
+    <script
+      src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+      integrity="sha256-sVg6zXU6tWj5nbzD67RPawPQhVgMXwR8C6sP03EFL2g="
+      crossorigin=""
+    ></script>
+
+    <!-- JavaScript -->
+    <script>
+      let map, carMarker;
+      let tracking = false;
+      let currentIndex = 0;
+
+      const startButton = document.getElementById("start-tracking");
+      const statusText = document.getElementById("status");
+
+      const carPath = [
+        [51.505, -0.09],
+        [51.507, -0.08],
+        [51.509, -0.07],
+        [51.511, -0.06],
+        [51.513, -0.05],
+      ];
+
+      // Function to initialize and display the map
+      function initializeMap() {
+        const mapElement = document.getElementById("map");
+        mapElement.style.display = "block"; // Show map
+
+        // Delay the map initialization slightly to ensure the display change is applied
+        setTimeout(() => {
+          // Initialize the map
+          map = L.map("map").setView([51.505, -0.09], 13);
+
+          // Load map tiles from OpenStreetMap
+          L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+            maxZoom: 19,
+            attribution:
+              '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+          }).addTo(map);
+
+          // Custom car icon for the marker
+          const carIcon = L.icon({
+            iconUrl: "https://cdn-icons-png.flaticon.com/512/808/808573.png", // Car icon URL
+            iconSize: [32, 32], // Size of the icon
+            iconAnchor: [16, 32], // Anchor the icon at the bottom center
+          });
+
+          // Create a marker for the car with the custom car icon and add it to the map (Initial Position)
+          carMarker = L.marker([51.505, -0.09], { icon: carIcon }).addTo(map);
+
+          // Invalidate map size to force recalculation
+          map.invalidateSize();
+        }, 100); // Small delay to ensure the display change is applied
+      }
+
+      // Function to simulate car movement
+      function startCarTracking() {
+        if (tracking) return;
+
+        tracking = true;
+        statusText.textContent = "Status: Tracking in progress...";
+        startButton.disabled = true;
+
+        initializeMap(); // Initialize the map when tracking starts
+
+        // Move the car every 2 seconds
+        const moveCar = setInterval(() => {
+          if (currentIndex < carPath.length) {
+            carMarker.setLatLng(carPath[currentIndex]);
+            map.setView(carPath[currentIndex], 13); // Update map to follow the car
+            currentIndex++;
+          } else {
+            clearInterval(moveCar);
+            statusText.textContent = "Status: Tracking complete.";
+            startButton.disabled = false;
+            tracking = false;
+          }
+        }, 2000);
+      }
+
+      // Add event listener to the start tracking button
+      startButton.addEventListener("click", startCarTracking);
+    </script>
+  </body>
+</html>

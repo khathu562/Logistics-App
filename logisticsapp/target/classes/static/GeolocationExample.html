@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Map Example</title>
+    <!-- Font Awesome for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      /* General Body Styling */
+      body {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        height: 100vh;
+        font-family: "Arial", sans-serif;
+        background-color: #13072f;
+      }
+
+      /* Header Styling */
+      header {
+        background-color: #190432;
+        color: rgb(198, 22, 22);
+        padding: 0px;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Main Container for Map and Controls */
+      .main-container {
+        display: flex;
+        flex: 1;
+        overflow: hidden; /* Prevent overflow */
+      }
+
+      /* Map Styling */
+      #map {
+        flex: 1; /* Take up available space */
+        height: 100%; /* Full height of the main container */
+        border: 2px solid #190432;
+        border-radius: 8px;
+      }
+
+      /* Sidebar Styling */
+      .map-controls {
+        width: 300px;
+        padding: 20px;
+        background-color: #e5e6ec;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        border-radius: 8px;
+        margin-left: 10px;
+        overflow-y: auto; /* Allow scrolling if content overflows */
+      }
+
+      h3 {
+        color: #1a062a;
+        margin-bottom: 10px;
+        font-size: 18px; /* Increased font size */
+      }
+
+      button {
+        padding: 12px 16px; /* Slightly adjusted padding */
+        font-size: 16px;
+        margin: 10px 0;
+        background-color: #0d0221;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        display: flex;
+        align-items: center;
+      }
+
+      button i {
+        margin-right: 8px;
+      }
+
+      button:hover {
+        background-color: #e41017;
+        transform: translateY(-2px);
+      }
+
+      /* Arrival Info Styles */
+      #arrival-info,
+      #speed-info {
+        margin-top: 20px;
+        padding: 15px; /* Increased padding for better spacing */
+        background-color: #f7f7f7;
+        border-left: 5px solid #0b021a;
+        border-radius: 5px;
+      }
+
+      #arrival-info p,
+      #speed-info p {
+        margin: 5px 0;
+        font-size: 14px;
+        color: #0a063b;
+      }
+
+      /* Footer Styling */
+      footer {
+        background: #021038;
+        color: white;
+        text-align: center;
+        padding: 8px;
+        box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Navigation Bar Styling */
+
+      h2 {
+        color: green;
+      }
+
+      /* Styling for the nav container */
+      nav {
+        background: linear-gradient(90deg, #041340, #6a91f2);
+        padding: 10px 20px; /* Padding around the nav */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-family: Arial, sans-serif;
+      }
+
+      /* Styling for the nav list */
+      nav ul {
+        list-style: none; /* Remove bullet points */
+        margin: 0;
+        padding: 0;
+        display: flex;
+      }
+
+      nav ul li {
+        margin: 0 15px; /* Space between nav items */
+      }
+
+      nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+        padding: 10px;
+        transition: background-color 0.3s ease;
+      }
+
+      nav ul li a:hover {
+        background-color: #555; /* Darker background on hover */
+        border-radius: 5px;
+      }
+
+      /* Styling for the dropdown */
+      .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+
+      .dropbtn {
+        background-color: transparent;
+        color: white;
+        font-size: 16px;
+        padding: 10px;
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .dropbtn:hover {
+        background-color: #555; /* Darker background on hover */
+        border-radius: 5px;
+      }
+
+      /* Dropdown content styling */
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        border-radius: 5px;
+      }
+
+      .dropdown-content a {
+        color: #333;
+        padding: 12px 20px;
+        text-decoration: none;
+        display: block;
+        transition: background-color 0.3s ease;
+      }
+
+      .dropdown-content a:hover {
+        background-color: #ddd;
+      }
+
+      /* Show the dropdown content on hover */
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+
+      /* Styling for icons inside links */
+      nav ul li a i,
+      .dropdown-content a i {
+        margin-right: 8px; /* Space between icon and text */
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Logistics Tracking Map</h1>
+      <nav>
+        <div class="dropdown">
+          <a href="#" class="dropbtn"> <i class="fas fa-bars"></i> Menu </a>
+
+          <!-- Dropdown content -->
+          <div class="dropdown-content">
+            <a href="#map"><i class="fas fa-map-marked-alt"></i> Map</a>
+            <a href="#trucks"><i class="fas fa-truck"></i> Available Trucks</a>
+            <a href="#arrival-info"
+              ><i class="fas fa-clock"></i> Estimated Arrival</a
+            >
+          </div>
+        </div>
+        <ul>
+          <li>
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+          </li>
+          <li>
+            <a href="messaging.html"
+              ><i class="fas fa-comments"></i> Messaging</a
+            >
+          </li>
+          <li>
+            <a href="GeolocationExample.html"
+              ><i class="fas fa-map-marker-alt"></i> Tracking</a
+            >
+          </li>
+          <li>
+            <a href="payments.html"
+              ><i class="fas fa-credit-card"></i> Payments</a
+            >
+          </li>
+          <li>
+            <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+          </li>
+        </ul>
+
+        <!-- Dropdown container -->
+      </nav>
+    </header>
+
+    <div class="main-container">
+      <div id="map"></div>
+      <div class="map-controls">
+        <h2>Controls</h2>
+        <button id="start-tracking">
+          <i class="fas fa-play"></i> Start Tracking
+        </button>
+        <button id="show-route"><i class="fas fa-route"></i> Show Route</button>
+        <button id="toggle-alerts">
+          <i class="fas fa-bell"></i> Toggle Alerts
+        </button>
+
+        <h3>Estimated Arrival</h3>
+        <div id="arrival-info">
+          <p>
+            <strong>Destination:</strong>
+            <span id="destination-name">City Center</span>
+          </p>
+          <p>
+            <strong>Estimated Time:</strong>
+            <span id="estimated-time">1 hour 30 minutes</span>
+          </p>
+          <p>
+            <strong>Distance to Destination:</strong>
+            <span id="distance-to-destination">Calculating...</span>
+          </p>
+        </div>
+
+        <h3>Current Speed</h3>
+        <div id="speed-info">
+          <p><strong>Speed:</strong> <span id="current-speed">0 km/h</span></p>
+        </div>
+
+        <button id="stop-tracking">
+          <i class="fas fa-stop"></i> Stop Tracking
+        </button>
+        <button id="last-known-location">
+          <i class="fas fa-map-marker-alt"></i> Reload The Map
+        </button>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2024 Logistics Solutions. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+      let trackingId;
+      let route = [];
+      let alertsEnabled = false;
+      let lastKnownPosition = null;
+      const destination = { latitude: -33.9249, longitude: 18.4241 };
+
+      // Function to load map at a specific location
+      function loadMap(latitude, longitude) {
+        const mapDiv = document.getElementById("map");
+        mapDiv.innerHTML =
+          '<iframe width="100%" height="100%" src="https://maps.google.com/maps?q=' +
+          latitude +
+          "," +
+          longitude +
+          '&amp;z=15&amp;output=embed"></iframe>';
+      }
+
+      // Function to calculate and display distance to destination
+      function updateDistanceToDestination(latitude, longitude) {
+        const distance = calculateDistance(
+          latitude,
+          longitude,
+          destination.latitude,
+          destination.longitude
+        );
+        document.getElementById(
+          "distance-to-destination"
+        ).innerText = `${distance.toFixed(2)} km`;
+      }
+
+      // Haversine formula to calculate distance between two lat/long points
+      function calculateDistance(lat1, lon1, lat2, lon2) {
+        const R = 6371; // Radius of the Earth in kilometers
+        const dLat = ((lat2 - lat1) * Math.PI) / 180;
+        const dLon = ((lon2 - lon1) * Math.PI) / 180;
+        const a =
+          Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+          Math.cos((lat1 * Math.PI) / 180) *
+            Math.cos((lat2 * Math.PI) / 180) *
+            Math.sin(dLon / 2) *
+            Math.sin(dLon / 2);
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        return R * c; // Distance in kilometers
+      }
+
+      // Function to get current position and update map
+      function trackPosition() {
+        trackingId = navigator.geolocation.watchPosition(
+          (position) => {
+            const { latitude, longitude } = position.coords;
+            loadMap(latitude, longitude);
+            updateDistanceToDestination(latitude, longitude);
+
+            // Update route array for tracking path
+            route.push({ lat: latitude, lng: longitude });
+
+            // Update speed info
+            document.getElementById("current-speed").innerText = `${
+              position.coords.speed || 0
+            } km/h`;
+
+            lastKnownPosition = { latitude, longitude };
+          },
+          (error) => {
+            console.error("Error tracking position:", error);
+          },
+          { enableHighAccuracy: true, maximumAge: 10000, timeout: 5000 }
+        );
+      }
+
+      // Start tracking button
+      document
+        .getElementById("start-tracking")
+        .addEventListener("click", trackPosition);
+
+      // Stop tracking button
+      document
+        .getElementById("stop-tracking")
+        .addEventListener("click", function () {
+          if (trackingId) {
+            navigator.geolocation.clearWatch(trackingId);
+          }
+        });
+
+      // Show last known location button
+      document
+        .getElementById("last-known-location")
+        .addEventListener("click", function () {
+          if (lastKnownPosition) {
+            loadMap(lastKnownPosition.latitude, lastKnownPosition.longitude);
+          } else {
+            alert("No known location yet.");
+          }
+        });
+
+      // Toggle alerts button
+      document
+        .getElementById("toggle-alerts")
+        .addEventListener("click", function () {
+          alertsEnabled = !alertsEnabled;
+          alert(
+            alertsEnabled
+              ? "Alerts have been enabled."
+              : "Alerts have been disabled."
+          );
+        });
+    </script>
+  </body>
+</html>

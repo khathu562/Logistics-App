@@ -1,0 +1,11 @@
+footer {
+  background: #021038;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2);
+  position: fixed; /* Fixed position */
+  bottom: 0; /* Aligns to the bottom */
+  left: 0; /* Aligns to the left */
+  width: 100%; /* Full width */
+}

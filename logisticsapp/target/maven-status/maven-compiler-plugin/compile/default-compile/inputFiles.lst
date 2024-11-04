@@ -1,0 +1,16 @@
+C:\Desktop\Logistics_App\logisticsapp\src\main\java\com\logistics\logisticsapp\config\SecurityConfig.java
+C:\Desktop\Logistics_App\logisticsapp\src\main\java\com\logistics\logisticsapp\controller\MessageController.java
+C:\Desktop\Logistics_App\logisticsapp\src\main\java\com\logistics\logisticsapp\controller\PaymentController.java
+C:\Desktop\Logistics_App\logisticsapp\src\main\java\com\logistics\logisticsapp\controller\UserController.java
+C:\Desktop\Logistics_App\logisticsapp\src\main\java\com\logistics\logisticsapp\controllers\MessagingController.java
+C:\Desktop\Logistics_App\logisticsapp\src\main\java\com\logistics\logisticsapp\LogisticsappApplication.java
+C:\Desktop\Logistics_App\logisticsapp\src\main\java\com\logistics\logisticsapp\model\Invoice.java
+C:\Desktop\Logistics_App\logisticsapp\src\main\java\com\logistics\logisticsapp\model\Message.java
+C:\Desktop\Logistics_App\logisticsapp\src\main\java\com\logistics\logisticsapp\model\Payment.java
+C:\Desktop\Logistics_App\logisticsapp\src\main\java\com\logistics\logisticsapp\model\User.java
+C:\Desktop\Logistics_App\logisticsapp\src\main\java\com\logistics\logisticsapp\repository\InvoiceRepository.java
+C:\Desktop\Logistics_App\logisticsapp\src\main\java\com\logistics\logisticsapp\repository\PaymentRepository.java
+C:\Desktop\Logistics_App\logisticsapp\src\main\java\com\logistics\logisticsapp\repository\UserRepository.java
+C:\Desktop\Logistics_App\logisticsapp\src\main\java\com\logistics\logisticsapp\service\MessageService.java
+C:\Desktop\Logistics_App\logisticsapp\src\main\java\com\logistics\logisticsapp\service\PaymentService.java
+C:\Desktop\Logistics_App\logisticsapp\src\main\java\com\logistics\logisticsapp\service\UserService.java

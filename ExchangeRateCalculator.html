@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exchange Rate Calculator</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        background-color: #f4f4f4;
+      }
+
+      h1 {
+        text-align: left;
+      }
+
+      table {
+        width: 100%;
+        max-width: 600px;
+        margin: 20px auto;
+        border-collapse: collapse;
+      }
+
+      th,
+      td {
+        padding: 10px;
+        border: 1px solid #ddd;
+        text-align: center;
+      }
+
+      th {
+        background-color: #adbfd6;
+      }
+
+      input[type="number"] {
+        padding: 10px;
+        width: calc(100% - 22px);
+        margin: 0 auto;
+        display: block;
+        margin-bottom: 20px;
+      }
+
+      button {
+        display: block;
+        width: 35%;
+        padding: 10px;
+        background-color: rgb(76, 76, 225);
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        margin-bottom: 20px;
+        text-align: left;
+      }
+
+      button:hover {
+        background-color: #87ceeb;
+      }
+
+      .results {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 18px;
+      }
+
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Hide the table initially */
+      #currency-table {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Exchange Rate Calculator</h1>
+      <label for="amount"
+        >Please Enter The Amount you want to Exchange in ZAR:</label
+      >
+      <input
+        type="number"
+        id="amount"
+        placeholder="Please Enter amount in ZAR"
+        step="0.01"
+      />
+
+      <!-- Currency table -->
+      <table id="currency-table">
+        <thead>
+          <tr>
+            <th>Currency</th>
+            <th>Today's Exchange Rate</th>
+            <th>Amount You Will Receive in ZAR Currency</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>USD</td>
+            <td>18.24</td>
+            <td id="usd-amount">-</td>
+          </tr>
+          <tr>
+            <td>EUR</td>
+            <td>19.89</td>
+            <td id="eur-amount">-</td>
+          </tr>
+          <tr>
+            <td>GBP</td>
+            <td>23.60</td>
+            <td id="gbp-amount">-</td>
+          </tr>
+          <tr>
+            <td>JPY</td>
+            <td>0.12</td>
+            <td id="jpy-amount">-</td>
+          </tr>
+          <tr>
+            <td>AUD</td>
+            <td>12.22</td>
+            <td id="aud-amount">-</td>
+          </tr>
+          <tr>
+            <td>CAD</td>
+            <td>13.31</td>
+            <td id="cad-amount">-</td>
+          </tr>
+          <tr>
+            <td>CHF</td>
+            <td>20.56</td>
+            <td id="chf-amount">-</td>
+          </tr>
+          <tr>
+            <td>CNY</td>
+            <td>2.51</td>
+            <td id="cny-amount">-</td>
+          </tr>
+          <tr>
+            <td>INR</td>
+            <td>0.22</td>
+            <td id="inr-amount">-</td>
+          </tr>
+          <tr>
+            <td>BRL</td>
+            <td>3.37</td>
+            <td id="brl-amount">-</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <button onclick="convertCurrency()">Convert Currency to ZAR</button>
+
+      <div class="results">
+        <p id="result"></p>
+      </div>
+    </div>
+
+    <script>
+      const conversionRates = {
+        usd: 18.24,
+        eur: 19.89,
+        gbp: 23.6,
+        jpy: 0.12,
+        aud: 12.22,
+        cad: 13.31,
+        chf: 20.56,
+        cny: 2.51,
+        inr: 0.22,
+        brl: 3.37,
+      };
+
+      function convertCurrency() {
+        let amount = parseFloat(document.getElementById("amount").value);
+        if (isNaN(amount) || amount <= 0) {
+          document.getElementById("result").innerText =
+            "Please enter a valid amount in ZAR.";
+          return;
+        }
+
+        // Show the table when a valid amount is entered
+        document.getElementById("currency-table").style.display = "table";
+
+        document.getElementById(
+          "result"
+        ).innerText = `Converted amount from ZAR: ${amount}`;
+
+        document.getElementById("usd-amount").innerText = (
+          amount / conversionRates.usd
+        ).toFixed(2);
+        document.getElementById("eur-amount").innerText = (
+          amount / conversionRates.eur
+        ).toFixed(2);
+        document.getElementById("gbp-amount").innerText = (
+          amount / conversionRates.gbp
+        ).toFixed(2);
+        document.getElementById("jpy-amount").innerText = (
+          amount / conversionRates.jpy
+        ).toFixed(2);
+        document.getElementById("aud-amount").innerText = (
+          amount / conversionRates.aud
+        ).toFixed(2);
+        document.getElementById("cad-amount").innerText = (
+          amount / conversionRates.cad
+        ).toFixed(2);
+        document.getElementById("chf-amount").innerText = (
+          amount / conversionRates.chf
+        ).toFixed(2);
+        document.getElementById("cny-amount").innerText = (
+          amount / conversionRates.cny
+        ).toFixed(2);
+        document.getElementById("inr-amount").innerText = (
+          amount / conversionRates.inr
+        ).toFixed(2);
+        document.getElementById("brl-amount").innerText = (
+          amount / conversionRates.brl
+        ).toFixed(2);
+      }
+    </script>
+  </body>
+</html>

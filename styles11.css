@@ -1,0 +1,192 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #0e0330, #680612);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Header Styles */
+header {
+  background: linear-gradient(90deg, #041340, #6a91f2);
+  color: #f9f9f9;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* Align logo to the left */
+.header-logo {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Push navigation to the right but not too close to the end */
+nav {
+  margin-left: auto; /* Pushes navigation to the right */
+  margin-right: 35px; /* Adds space between nav and right edge */
+}
+
+/* Navigation links */
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+}
+
+/* Navigation link styles */
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover {
+  color: #dc3545; /* Color change on hover */
+}
+
+/* Additional styles for the contact section */
+.contact h2,
+.contact p {
+  color: red;
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.login-box {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(54, 7, 208, 0.3);
+  text-align: center;
+  width: 360px;
+  color: #fff;
+}
+
+.login-box h2 {
+  margin-bottom: 30px;
+  font-size: 32px;
+  letter-spacing: 2px;
+  color: #c6de10;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px 40px 10px 10px; /* Adjust padding to make space for icon */
+  font-size: 18px;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #fff;
+  color: #ffffff;
+  outline: none;
+  transition: 0.3s;
+}
+
+.input-group label {
+  position: absolute;
+  top: 0;
+  left: 10px; /* Position label inside the input */
+  color: #ccc;
+  font-size: 18px;
+  pointer-events: none;
+  transition: 0.3s;
+}
+
+.input-group input:focus ~ label,
+.input-group input:not(:placeholder-shown) ~ label {
+  top: -20px;
+  font-size: 14px;
+  color: #00e676;
+}
+
+.input-group input:focus {
+  border-bottom-color: #00e676;
+}
+
+.input-group i {
+  position: absolute;
+  right: 10px; /* Adjust position to the right */
+  top: 10px; /* Center vertically in the input */
+  color: #ccc;
+  transition: 0.3s;
+}
+
+.remember-me {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.remember-me label {
+  font-size: 14px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background: linear-gradient(to right, #49041a, #053065);
+  border: none;
+  border-radius: 25px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.4s ease;
+}
+
+button:hover {
+  background: linear-gradient(to right, #4d0313, #1a0b9a);
+}
+
+.extra-options {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.extra-options a {
+  color: #00e676;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.extra-options a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  background: #021038;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2);
+  position: fixed; /* Fixed position */
+  bottom: 0; /* Aligns to the bottom */
+  left: 0; /* Aligns to the left */
+  width: 100%; /* Full width */
+}
